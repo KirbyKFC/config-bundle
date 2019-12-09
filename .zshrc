@@ -1,5 +1,5 @@
 #!/bin/zsh
-#
+
 # exit for non-interactive shell
 [[ $- != *i* ]] && return
 
@@ -76,9 +76,10 @@ setopt HIST_VERIFY # Don't execute immediately upon history expansion.
 
 # Load aliases
 [ -f "$CONFIG_HOME/aliases.sh" ] && source "$CONFIG_HOME/aliases.sh"
-# Load private aliases
-[ -f "$CONFIG_HOME/privaliases.sh" ] && source "$CONFIG_HOME/privaliases.sh"
 # Load abbr
 [ -f "$CONFIG_HOME/abbr.sh" ] && source "$CONFIG_HOME/abbr.sh"
 
-# Bind Key
+# Keybind
+
+# Load custom config
+[ -f "$CONFIG_HOME/custom.sh" ] && source "$CONFIG_HOME/custom.sh"
