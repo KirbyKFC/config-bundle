@@ -1,11 +1,15 @@
-# Something You Should Manually Install
-## antibody
+## Private Files
+- `privaliases.sh`
+- `history.txt`
+
+## Something You Should Manually Install
+### antibody
 The plugin manager **(important)**  
 ```
 curl -sfL git.io/antibody | sh -s - -b /usr/local/bin
 ```
 else see <https://getantibody.github.io/install/>
-## exa
+### exa
 A little better than "ls"  
 To install simply use this command (in Debian)
 ```
