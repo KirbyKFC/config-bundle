@@ -15,3 +15,13 @@ To install simply use this command (in Debian)
 ```
 apt install exa
 ```
+### trash-cli
+A file restore bin
+To install simply use this command (in Debian)
+```
+apt install trash-cli
+```
+Else you can use pip to install it.
+```
+pip install trash-cli
+```
