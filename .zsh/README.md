@@ -1,5 +1,5 @@
 ## Private Files
-- `privaliases.sh`
+- `custom.sh`
 - `history.txt`
 
 ## Something You Should Manually Install
