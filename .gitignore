@@ -1,3 +1,7 @@
 # private files
 .zsh/history.txt
 .zsh/custom.sh
+.vim/tmp/
+!.vim/tmp/.gitkeep
+.vim/weapon/
+!.vim/weapon/.gitkeep
