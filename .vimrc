@@ -28,7 +28,6 @@ if (has("autocmd"))
     autocmd ColorScheme * call onedark#extend_highlight("Normal", { "bg": { "gui": "#000000" } })
   augroup END
 endif
-syntax on
 colorscheme onedark 
 
 let g:rainbow_active = 1
