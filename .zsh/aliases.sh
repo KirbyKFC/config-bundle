@@ -11,6 +11,9 @@ alias l="exa -a"
 alias lt="exa -T"
 alias llt="exa -lT"
 
+# printf
+alias pf=printf
+
 # Python
 alias py=python3
 alias python=python3
@@ -33,7 +36,6 @@ alias -s md=vim
 alias -s py=python3
 
 # GitHub Notebook
-
 alias note="vim ~/LAB/repo/Note/quicknote.md"
 alias notes="cd ~/LAB/repo/Note"
 alias syncnotes="~/LAB/repo/Note/sync.sh"
