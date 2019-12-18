@@ -17,11 +17,9 @@ Plug 'iamcco/markdown-preview.nvim', {'do':{ -> mkdp#util#install() }, 'for':'ma
 call plug#end()
 
 "设置为24bit颜色模式
-if (empty($TMUX))
-	if (has("termguicolors"))
-		set termguicolors
-	endif
-endif 
+if (has("termguicolors"))
+	set termguicolors
+endif
 
 "覆盖onedark默认配置
 if (has("autocmd"))
