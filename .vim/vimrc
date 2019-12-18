@@ -7,7 +7,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'joshdick/onedark.vim'
 Plug 'luochen1990/rainbow'
 "Plug 'mileszs/ack.vim'
-Plug 'w0rp/ale', {'for':'java,c,cpp,cs,python,sql,xml,json,registry,conf'} 
+Plug 'w0rp/ale', {'for':'java,c,cpp,cs,python,sql,xml,json,registry,conf,javascript,html,css,sh,vim'} 
+Plug 'maralla/completor.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mbbill/fencview'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'iamcco/markdown-preview.nvim', {'do':{ -> mkdp#util#install() }, 'for':'markdown'}
@@ -16,31 +18,21 @@ call plug#end()
 
 "设置为24bit颜色模式
 if (empty($TMUX))
-  if (has("termguicolors"))
-    set termguicolors
-  endif
+	if (has("termguicolors"))
+		set termguicolors
+	endif
 endif 
 
 "覆盖onedark默认配置
 if (has("autocmd"))
-  augroup colorextend
-    autocmd!
-    autocmd ColorScheme * call onedark#extend_highlight("Normal", { "bg": { "gui": "#000000" } })
-  augroup END
+	augroup colorextend
+		autocmd!
+		autocmd ColorScheme * call onedark#extend_highlight("Normal", { "bg": { "gui": "#000000" } })
+	augroup END
 endif
 colorscheme onedark 
 
 let g:rainbow_active = 1
-
-"剪贴板交互
-let s:clip = '/mnt/c/Windows/System32/clip.exe'  " default location
-if executable(s:clip)
-	augroup WSLYank
-	        autocmd!
-	        autocmd TextYankPost * call system('echo '.shellescape(join(v:event.regcontents, "\<CR>")).' | '.s:clip)
-        augroup END
-end
-noremap <C-v> :r !/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -Command Get-Clipboard<CR>
 
 "完善鼠标支持
 if has("mouse_sgr")
@@ -68,3 +60,5 @@ set mouse=a		" Enable mouse usage (all modes)
 set backspace=indent,eol,start
 set directory=~/.vim/tmp
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,sjis,euc-jp,euc-kr,latin1
+set ts=4
+set sw=4
