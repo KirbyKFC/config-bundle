@@ -26,9 +26,9 @@ alias mv="mv -i"
 
 # ZSH
 alias plugapply="antibody bundle < ~/LAB/repo/config-bundle/.zsh/weapon.txt > ~/LAB/repo/config-bundle/.zsh/weapon.sh"
-alias plugconfig="vi ~/LAB/repo/config-bundle/.zsh/weapon.txt"
+alias plugconfig="vim ~/LAB/repo/config-bundle/.zsh/weapon.txt"
 alias plugupdate="antibody update"
-alias aliases="vi ~/LAB/repo/config-bundle/.zsh/aliases.sh"
+alias aliases="vim ~/LAB/repo/config-bundle/.zsh/aliases.sh"
 
 # File Runners
 alias -s txt=vim
@@ -39,3 +39,6 @@ alias -s py=python3
 alias note="vim ~/LAB/repo/Note/quicknote.md"
 alias notes="cd ~/LAB/repo/Note"
 alias syncnotes="~/LAB/repo/Note/sync.sh"
+
+# Vim
+alias vi=vim
