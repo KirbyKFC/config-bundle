@@ -4,9 +4,9 @@
 [[ $- != *i* ]] && return
 
 # Use Tmux as Default
-if which tmux >/dev/null 2>&1; then
-    [[ -z "$TMUX" ]] && (tmux attach -t default || tmux new -s default)
-fi
+#if which tmux >/dev/null 2>&1; then
+#	[[ -z "$TMUX" ]] && (tmux attach -t default || tmux new -s default)
+#fi
 
 # WSL (aka Bash for Windows) doesn't work well with BG_NICE
 [ -d "/mnt/c" ] && [[ "$(uname -a)" == *Microsoft* ]] && unsetopt BG_NICE
@@ -18,7 +18,7 @@ CONFIG_HOME="$HOME/LAB/repo/config-bundle/.zsh"
 
 # Show Banner
 cat "$CONFIG_HOME/banner.txt"
-[[ -z "$TMUX" ]] && printf "Warning! You are not in Tmux.\n"
+#[[ -z "$TMUX" ]] && printf "Warning! You are not in Tmux.\n"
 
 # Enable colorized ls to make dir look nice
 [ -f "$CONFIG_HOME/ls_colors.sh" ] && source "$CONFIG_HOME/ls_colors.sh"
