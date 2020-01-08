@@ -37,7 +37,7 @@ alias -s py=python3
 
 # GitHub Notebook
 alias note="vim ~/LAB/repo/Note/quicknote.md"
-alias notes="cd ~/LAB/repo/Note"
+alias notes="vim ~/LAB/repo/Note"
 alias syncnotes="~/LAB/repo/Note/sync.sh"
 
 # Vim

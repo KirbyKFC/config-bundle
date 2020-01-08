@@ -12,7 +12,7 @@ Plug 'maralla/completor.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mbbill/fencview'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'iamcco/markdown-preview.nvim', {'do':{ -> mkdp#util#install() }, 'for':'markdown'}
+Plug 'iamcco/markdown-preview.nvim', {'do':{ -> mkdp#util#install() }, 'for':['markdown', 'vim-plug']}
 
 call plug#end()
 
@@ -29,6 +29,7 @@ if (has("autocmd"))
 	augroup END
 endif
 colorscheme onedark 
+let g:airline_theme='onedark'
 
 let g:rainbow_active = 1
 
