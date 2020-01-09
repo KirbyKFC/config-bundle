@@ -44,6 +44,8 @@ fi
 
 # Load Modules
 zmodload zsh/zpty
+autoload -Uz compinit
+compinit
 
 # Load Plugin Manager
 ## Dynamic Loading

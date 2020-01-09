@@ -16,3 +16,5 @@ fpath+=( /root/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-momo-l
 source /root/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-hlissner-SLASH-zsh-autopair/autopair.plugin.zsh
 source /root/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-hlissner-SLASH-zsh-autopair/zsh-autopair.plugin.zsh
 fpath+=( /root/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-hlissner-SLASH-zsh-autopair )
+source /root/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-b4b4r07-SLASH-enhancd/init.sh
+fpath+=( /root/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-b4b4r07-SLASH-enhancd )

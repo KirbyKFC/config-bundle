@@ -7,3 +7,4 @@ caarlos0/zsh-mkc
 Vifon/deer
 momo-lab/zsh-abbrev-alias
 hlissner/zsh-autopair
+b4b4r07/enhancd
