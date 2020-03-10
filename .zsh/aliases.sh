@@ -42,3 +42,6 @@ alias syncnotes="~/LAB/repo/Note/sync.sh"
 
 # Vim
 alias vi=vim
+
+# ADB
+alias brevent="adb -d shell sh /data/data/me.piebridge.brevent/brevent.sh"
