@@ -33,6 +33,19 @@ let g:airline_theme='onedark'
 
 let g:rainbow_active = 1
 
+"剪贴板交互
+if system('uname -r') =~ "Microsoft"
+	augroup Yank
+		autocmd!
+		autocmd TextYankPost * :call system('clip.exe ',@")
+	augroup END
+	nnoremap x "_x
+	nnoremap X "_X
+	vnoremap x "_x
+	vnoremap X "_X
+	noremap <silent> p :r !powershell.exe -Command Get-Clipboard<CR>
+endif
+
 "完善鼠标支持
 if has("mouse_sgr")
 	set ttymouse=sgr
