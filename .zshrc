@@ -42,27 +42,39 @@ if [[ "$TERM" == (screen*|xterm*|rxvt*|tmux*|putty*|konsole*|gnome*) ]]; then
 	add-zsh-hook -Uz preexec xterm_title_preexec
 fi
 
+# Load Plugin
+source ~/.zinit/bin/zinit.zsh
+
+zinit wait lucid light-mode for \
+	changyuheng/zsh-interactive-cd \
+	Vifon/deer \
+	b4b4r07/enhancd \
+	caarlos0/zsh-mkc \
+	hlissner/zsh-autopair \
+	skywind3000/z.lua \
+	zdharma/fast-syntax-highlighting \
+	zdharma/history-search-multi-word \
+	atload'[ -f "$CONFIG_HOME/abbr.sh" ] && source "$CONFIG_HOME/abbr.sh"' momo-lab/zsh-abbrev-alias
+
+zinit wait blockf lucid light-mode for \
+	zsh-users/zsh-completions
+
+zinit wait lucid atload'_zsh_autosuggest_start' light-mode for \
+	zsh-users/zsh-autosuggestions
+
+## deer
+fpath+=( ~/.zinit/plugins/Vifon---deer )
+autoload -U deer
+zle -N deer
+
 # Load Modules
 zmodload zsh/zpty
-autoload -Uz compinit
-compinit
-
-# Load Plugin Manager
-## Dynamic Loading
-#source <(antibody init)
-#antibody bundle < $CONFIG_HOME/weapon.txt
-## Static Loading
-source "$CONFIG_HOME/weapon.sh"
+autoload -Uz compinit && compinit
 
 # Plugin Settings
 ## zsh-autosuggestions
 ZSH_AUTOSUGGEST_USE_ASYNC=1
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-## deer
-fpath+=( /root/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-Vifon-SLASH-deer )
-autoload -U deer
-zle -N deer
-bindkey '\ek' deer
 
 # Save History
 HISTFILE="$CONFIG_HOME/history.txt"
@@ -84,10 +96,9 @@ setopt HIST_VERIFY # Don't execute immediately upon history expansion.
 
 # Load aliases
 [ -f "$CONFIG_HOME/aliases.sh" ] && source "$CONFIG_HOME/aliases.sh"
-# Load abbr
-[ -f "$CONFIG_HOME/abbr.sh" ] && source "$CONFIG_HOME/abbr.sh"
 
 # Keybind
+bindkey '\ek' deer
 
 # Load custom config
 [ -f "$CONFIG_HOME/custom.sh" ] && source "$CONFIG_HOME/custom.sh"

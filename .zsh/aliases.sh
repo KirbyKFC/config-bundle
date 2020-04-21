@@ -25,9 +25,6 @@ alias cp="cp -i"
 alias mv="mv -i"
 
 # ZSH
-alias plugapply="antibody bundle < ~/LAB/repo/config-bundle/.zsh/weapon.txt > ~/LAB/repo/config-bundle/.zsh/weapon.sh"
-alias plugconfig="vim ~/LAB/repo/config-bundle/.zsh/weapon.txt"
-alias plugupdate="antibody update"
 alias aliases="vim ~/LAB/repo/config-bundle/.zsh/aliases.sh"
 
 # File Runners
@@ -42,6 +39,3 @@ alias syncnotes="~/LAB/repo/Note/sync.sh"
 
 # Vim
 alias vi=vim
-
-# ADB
-alias brevent="adb -d shell sh /data/data/me.piebridge.brevent/brevent.sh"

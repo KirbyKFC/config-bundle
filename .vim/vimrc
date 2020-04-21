@@ -33,6 +33,10 @@ let g:airline_theme='onedark'
 
 let g:rainbow_active = 1
 
+"透明背景
+set background=dark
+hi Normal guibg=NONE ctermbg=NONE
+
 "剪贴板交互
 if system('uname -r') =~ "Microsoft"
 	augroup Yank
@@ -53,7 +57,6 @@ else
 	set ttymouse=xterm2
 end
 
-set background=dark
 set clipboard=unnamed
 set number		"行号
 set hlsearch
