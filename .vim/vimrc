@@ -13,6 +13,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mbbill/fencview'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'iamcco/markdown-preview.nvim', {'do':{ -> mkdp#util#install() }, 'for':['markdown', 'vim-plug']}
+Plug 'preservim/nerdtree'
 
 call plug#end()
 
@@ -77,3 +78,5 @@ set directory=~/.vim/tmp
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,sjis,euc-jp,euc-kr,latin1
 set ts=4
 set sw=4
+
+"set plugin
