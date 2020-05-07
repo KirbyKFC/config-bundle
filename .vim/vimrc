@@ -8,6 +8,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'luochen1990/rainbow'
 "Plug 'mileszs/ack.vim'
 Plug 'w0rp/ale', {'for':'java,c,cpp,cs,python,sql,xml,json,registry,conf,javascript,html,css,sh,vim'} 
+Plug 'cespare/vim-toml', {'for':'toml'} 
 Plug 'maralla/completor.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mbbill/fencview'
