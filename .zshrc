@@ -4,12 +4,7 @@
 [[ $- != *i* ]] && return
 
 # Use Tmux as Default
-#if which tmux >/dev/null 2>&1; then
-#	[[ -z "$TMUX" ]] && (tmux attach -t default || tmux new -s default)
-#fi
-
-# WSL (aka Bash for Windows) doesn't work well with BG_NICE
-[ -d "/mnt/c" ] && [[ "$(uname -a)" == *Microsoft* ]] && unsetopt BG_NICE
+[[ -z "$TMUX" ]] && (tmux attach -t default || tmux new -s default)
 
 # Enable 256 color to make auto-suggestions look nice
 export TERM="xterm-256color"
@@ -18,14 +13,15 @@ CONFIG_HOME="$HOME/LAB/repo/config-bundle/.zsh"
 
 # Show Banner
 cat "$CONFIG_HOME/banner.txt"
-#[[ -z "$TMUX" ]] && printf "Warning! You are not in Tmux.\n"
+last -3 -F | sed -n 2,3p | xargs -0 printf 'Last Login Info:\n%s\n'
+[[ -z "$TMUX" ]] && printf "Warning! You are not in Tmux.\n"
 
 # Enable colorized ls to make dir look nice
 [ -f "$CONFIG_HOME/ls_colors.sh" ] && source "$CONFIG_HOME/ls_colors.sh"
 
 # Initialize command prompt
 [ -f "$CONFIG_HOME/prompt.sh" ] && source "$CONFIG_HOME/prompt.sh"
-precmd () { export PROMPT="%F{15}%m%f:%F{118}$(_fish_collapsed_pwd)%f>" }
+precmd () { export PROMPT="%F{208}%m%f:%F{118}$(_fish_collapsed_pwd)%f>" }
 
 # Auto Title
 autoload -Uz add-zsh-hook
@@ -42,6 +38,9 @@ if [[ "$TERM" == (screen*|xterm*|rxvt*|tmux*|putty*|konsole*|gnome*) ]]; then
 	add-zsh-hook -Uz preexec xterm_title_preexec
 fi
 
+# Keybind
+set -o vi
+
 # Load Plugin
 source ~/.zinit/bin/zinit.zsh
 
@@ -56,7 +55,7 @@ zinit wait lucid light-mode for \
 	zdharma/history-search-multi-word \
 	atload'[ -f "$CONFIG_HOME/abbr.sh" ] && source "$CONFIG_HOME/abbr.sh"' momo-lab/zsh-abbrev-alias
 
-zinit wait blockf lucid light-mode for \
+zinit wait blockf lucid atload'bindkey -r "^[/"' light-mode for \
 	zsh-users/zsh-completions
 
 zinit wait lucid atload'_zsh_autosuggest_start' light-mode for \
@@ -66,6 +65,7 @@ zinit wait lucid atload'_zsh_autosuggest_start' light-mode for \
 fpath+=( ~/.zinit/plugins/Vifon---deer )
 autoload -U deer
 zle -N deer
+bindkey '^K' deer
 
 # Load Modules
 zmodload zsh/zpty
@@ -97,8 +97,6 @@ setopt HIST_VERIFY # Don't execute immediately upon history expansion.
 # Load aliases
 [ -f "$CONFIG_HOME/aliases.sh" ] && source "$CONFIG_HOME/aliases.sh"
 
-# Keybind
-bindkey '\ek' deer
-
 # Load custom config
 [ -f "$CONFIG_HOME/custom.sh" ] && source "$CONFIG_HOME/custom.sh"
+. "/root/.acme.sh/acme.sh.env"
