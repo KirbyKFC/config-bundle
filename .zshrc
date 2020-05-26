@@ -4,9 +4,9 @@
 [[ $- != *i* ]] && return
 
 # Use Tmux as Default
-#if which tmux >/dev/null 2>&1; then
-#	[[ -z "$TMUX" ]] && (tmux attach -t default || tmux new -s default)
-#fi
+if which tmux >/dev/null 2>&1; then
+	[[ -z "$TMUX" ]] && (tmux attach -t default || tmux new -s default)
+fi
 
 # WSL (aka Bash for Windows) doesn't work well with BG_NICE
 [ -d "/mnt/c" ] && [[ "$(uname -a)" == *Microsoft* ]] && unsetopt BG_NICE
@@ -42,6 +42,9 @@ if [[ "$TERM" == (screen*|xterm*|rxvt*|tmux*|putty*|konsole*|gnome*) ]]; then
 	add-zsh-hook -Uz preexec xterm_title_preexec
 fi
 
+# Keybind
+set -o vi
+
 # Load Plugin
 source ~/.zinit/bin/zinit.zsh
 
@@ -70,6 +73,7 @@ zle -N deer
 # Load Modules
 zmodload zsh/zpty
 autoload -Uz compinit && compinit
+bindkey '^k' deer
 
 # Plugin Settings
 ## zsh-autosuggestions
@@ -96,9 +100,6 @@ setopt HIST_VERIFY # Don't execute immediately upon history expansion.
 
 # Load aliases
 [ -f "$CONFIG_HOME/aliases.sh" ] && source "$CONFIG_HOME/aliases.sh"
-
-# Keybind
-bindkey '\ek' deer
 
 # Load custom config
 [ -f "$CONFIG_HOME/custom.sh" ] && source "$CONFIG_HOME/custom.sh"
