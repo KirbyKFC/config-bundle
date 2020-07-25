@@ -5,8 +5,7 @@ call plug#begin('~/.vim/weapon')
 
 Plug 'vim-airline/vim-airline'
 Plug 'joshdick/onedark.vim'
-Plug 'luochen1990/rainbow'
-"Plug 'mileszs/ack.vim'
+"Plug 'luochen1990/rainbow'
 Plug 'w0rp/ale', {'for':'java,c,cpp,cs,python,sql,xml,json,registry,conf,javascript,html,vue,css,sh,vim'} 
 Plug 'cespare/vim-toml', {'for':'toml'} 
 Plug 'maralla/completor.vim'

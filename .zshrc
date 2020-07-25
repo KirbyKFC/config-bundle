@@ -1,5 +1,4 @@
 #!/bin/zsh
-
 # exit for non-interactive shell
 [[ $- != *i* ]] && return
 
@@ -25,7 +24,7 @@ cat "$CONFIG_HOME/banner.txt"
 
 # Initialize command prompt
 [ -f "$CONFIG_HOME/prompt.sh" ] && source "$CONFIG_HOME/prompt.sh"
-precmd () { export PROMPT="%F{15}%m%f:%F{118}$(_fish_collapsed_pwd)%f>" }
+precmd () { export PROMPT="%F{9}%m%f:%F{118}$(_fish_collapsed_pwd)%f>" }
 
 # Auto Title
 autoload -Uz add-zsh-hook
@@ -59,7 +58,7 @@ zinit wait lucid light-mode for \
 	zdharma/history-search-multi-word \
 	atload'[ -f "$CONFIG_HOME/abbr.sh" ] && source "$CONFIG_HOME/abbr.sh"' momo-lab/zsh-abbrev-alias
 
-zinit wait blockf lucid light-mode for \
+zinit wait blockf lucid atload'bindkey -r "^[/"' light-mode for \
 	zsh-users/zsh-completions
 
 zinit wait lucid atload'_zsh_autosuggest_start' light-mode for \
@@ -69,6 +68,7 @@ zinit wait lucid atload'_zsh_autosuggest_start' light-mode for \
 fpath+=( ~/.zinit/plugins/Vifon---deer )
 autoload -U deer
 zle -N deer
+bindkey '^K' deer
 
 # Load Modules
 zmodload zsh/zpty
