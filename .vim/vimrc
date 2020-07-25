@@ -6,8 +6,7 @@ call plug#begin('~/.vim/weapon')
 Plug 'vim-airline/vim-airline'
 Plug 'joshdick/onedark.vim'
 Plug 'luochen1990/rainbow'
-"Plug 'mileszs/ack.vim'
-Plug 'w0rp/ale', {'for':'java,c,cpp,cs,python,sql,xml,json,registry,conf,javascript,html,css,sh,vim'} 
+Plug 'w0rp/ale', {'for':'java,c,cpp,cs,python,sql,xml,json,registry,conf,javascript,html,vue,css,sh,vim'} 
 Plug 'cespare/vim-toml', {'for':'toml'} 
 Plug 'maralla/completor.vim'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -67,3 +66,6 @@ set ts=4
 set sw=4
 
 "set plugin
+
+"keybind
+noremap <silent> t :NERDTreeToggle<CR>

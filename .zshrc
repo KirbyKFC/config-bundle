@@ -1,5 +1,4 @@
 #!/bin/zsh
-
 # exit for non-interactive shell
 [[ $- != *i* ]] && return
 
@@ -70,6 +69,7 @@ bindkey '^K' deer
 # Load Modules
 zmodload zsh/zpty
 autoload -Uz compinit && compinit
+bindkey '^k' deer
 
 # Plugin Settings
 ## zsh-autosuggestions
