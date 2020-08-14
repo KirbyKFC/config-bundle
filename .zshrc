@@ -38,7 +38,6 @@ if [[ "$TERM" == (screen*|xterm*|rxvt*|tmux*|putty*|konsole*|gnome*) ]]; then
 fi
 
 # Keybind
-set -o vi
 
 # Load Plugin
 source ~/.zinit/bin/zinit.zsh
@@ -64,12 +63,11 @@ zinit wait lucid atload'_zsh_autosuggest_start' light-mode for \
 fpath+=( ~/.zinit/plugins/Vifon---deer )
 autoload -U deer
 zle -N deer
-bindkey '^K' deer
+bindkey '\ek' deer
 
 # Load Modules
 zmodload zsh/zpty
 autoload -Uz compinit && compinit
-bindkey '^k' deer
 
 # Plugin Settings
 ## zsh-autosuggestions
