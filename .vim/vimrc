@@ -4,7 +4,7 @@ runtime! debian.vim
 call plug#begin('~/.vim/weapon')
 
 Plug 'vim-airline/vim-airline'
-Plug 'joshdick/onedark.vim'
+Plug 'rakr/vim-one'
 Plug 'luochen1990/rainbow'
 Plug 'w0rp/ale', {'for':'java,c,cpp,cs,python,sql,xml,json,registry,conf,javascript,html,vue,css,sh,vim'} 
 Plug 'cespare/vim-toml', {'for':'toml'} 
@@ -13,6 +13,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mbbill/fencview'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'preservim/nerdtree'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 call plug#end()
 
@@ -21,21 +22,22 @@ if (has("termguicolors"))
 	set termguicolors
 endif
 
-"覆盖onedark默认配置
-if (has("autocmd"))
-	augroup colorextend
-		autocmd!
-		autocmd ColorScheme * call onedark#extend_highlight("Normal", { "bg": { "gui": "#000000" } })
-	augroup END
-endif
-colorscheme onedark 
-let g:airline_theme='onedark'
 
+"主题设置
+set background=light
+let g:one_allow_italics = 1
+let g:airline_theme='one'
+colorscheme one 
+hi Normal guibg=NONE ctermbg=NONE
 let g:rainbow_active = 1
 
-"透明背景
-set background=dark
-hi Normal guibg=NONE ctermbg=NONE
+"主题自定义
+if has('autocmd') && !has('gui_running')
+	augroup colorset
+		autocmd!
+		autocmd ColorScheme one silent! call one#highlight('Normal', '', '000000', '')
+	augroup END
+endif
 
 "完善鼠标支持
 if has("mouse_sgr")
@@ -43,6 +45,17 @@ if has("mouse_sgr")
 else
 	set ttymouse=xterm2
 end
+
+"剪贴板交互
+let s:clip = '/mnt/c/Windows/System32/clip.exe'  " default location
+if executable(s:clip)
+	augroup WSLYank
+	        autocmd!
+	        autocmd TextYankPost * call system('echo '.shellescape(join(v:event.regcontents, "\<CR>")).' | '.s:clip)
+        augroup END
+end
+"noremap <C-v> :exe 'norm a'.system('/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -Command Get-Clipboard')
+noremap p :r !/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -Command Get-Clipboard<CR>
 
 set clipboard=unnamed
 set number		"行号
