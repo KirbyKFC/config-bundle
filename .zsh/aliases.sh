@@ -25,17 +25,18 @@ alias cp="cp -i"
 alias mv="mv -i"
 
 # ZSH
-alias aliases="vim ~/LAB/repo/config-bundle/.zsh/aliases.sh"
+alias aliases="nvim ~/LAB/repo/config-bundle/.zsh/aliases.sh"
 
 # File Runners
-alias -s txt=vim
-alias -s md=vim
+alias -s txt=nvim
+alias -s md=nvim
 alias -s py=python3
 
 # GitHub Notebook
-alias note="vim ~/LAB/repo/Note/quicknote.md"
-alias notes="vim ~/LAB/repo/Note"
+alias note="nvim ~/LAB/repo/Note/quicknote.md"
+alias notes="nvim ~/LAB/repo/Note"
 alias syncnotes="~/LAB/repo/Note/sync.sh"
 
-# Vim
-alias vi=vim
+# neovim
+alias vi=nvim
+alias vim=nvim

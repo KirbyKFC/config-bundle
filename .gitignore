@@ -1,8 +1,8 @@
 # private files
 .zsh/history.txt
 .zsh/custom.sh
-.vim/.netrwhist
-.vim/tmp/
-!.vim/tmp/.gitkeep
-.vim/weapon/
-!.vim/weapon/.gitkeep
+nvim/.netrwhist
+nvim/tmp/
+!nvim/tmp/.gitkeep
+nvim/weapon/
+!nvim/weapon/.gitkeep

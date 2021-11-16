@@ -5,6 +5,9 @@
 # Use Tmux as Default
 [[ -z "$TMUX" ]] && (tmux attach -t default || tmux new -s default)
 
+# Path Variable
+export PATH="$HOME/.local/bin:$PATH"
+
 # Enable 256 color to make auto-suggestions look nice
 export TERM="xterm-256color"
 
@@ -12,7 +15,6 @@ CONFIG_HOME="$HOME/LAB/repo/config-bundle/.zsh"
 
 # Show Banner
 cat "$CONFIG_HOME/banner.txt"
-last -3 -F | sed -n 2,3p | xargs -0 printf 'Last Login Info:\n%s\n'
 [[ -z "$TMUX" ]] && printf "Warning! You are not in Tmux.\n"
 
 # Enable colorized ls to make dir look nice
@@ -20,7 +22,7 @@ last -3 -F | sed -n 2,3p | xargs -0 printf 'Last Login Info:\n%s\n'
 
 # Initialize command prompt
 [ -f "$CONFIG_HOME/prompt.sh" ] && source "$CONFIG_HOME/prompt.sh"
-precmd () { export PROMPT="%F{208}%m%f:%F{118}$(_fish_collapsed_pwd)%f>" }
+precmd () { export PROMPT="%F{253}%m%f:%F{118}$(_fish_collapsed_pwd)%f>" }
 
 # Auto Title
 autoload -Uz add-zsh-hook
@@ -97,4 +99,3 @@ setopt HIST_VERIFY # Don't execute immediately upon history expansion.
 
 # Load custom config
 [ -f "$CONFIG_HOME/custom.sh" ] && source "$CONFIG_HOME/custom.sh"
-. "/root/.acme.sh/acme.sh.env"

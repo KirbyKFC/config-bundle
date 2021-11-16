@@ -1,7 +1,5 @@
-runtime! debian.vim
-
 "vim-plug
-call plug#begin('~/.vim/weapon')
+call plug#begin('~/.config/nvim/weapon')
 
 Plug 'vim-airline/vim-airline'
 Plug 'rakr/vim-one'
@@ -10,6 +8,7 @@ Plug 'w0rp/ale', {'for':'java,c,cpp,cs,python,sql,xml,json,registry,conf,javascr
 Plug 'cespare/vim-toml', {'for':'toml'} 
 Plug 'maralla/completor.vim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mbbill/undotree'
 Plug 'mbbill/fencview'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'preservim/nerdtree'
@@ -39,24 +38,21 @@ if has('autocmd') && !has('gui_running')
 	augroup END
 endif
 
-"完善鼠标支持
-if has("mouse_sgr")
-	set ttymouse=sgr
-else
-	set ttymouse=xterm2
-end
+"indent line
+set list listchars=tab:\┆\ ,trail:·,extends:»,precedes:«,nbsp:×
 
 "剪贴板交互
 let s:clip = '/mnt/c/Windows/System32/clip.exe'  " default location
 if executable(s:clip)
 	augroup WSLYank
-	        autocmd!
-	        autocmd TextYankPost * call system('echo '.shellescape(join(v:event.regcontents, "\<CR>")).' | '.s:clip)
-        augroup END
+		autocmd!
+		autocmd TextYankPost * call system('echo '.shellescape(join(v:event.regcontents, "\<CR>")).' | '.s:clip)
+	augroup END
 end
 "noremap <C-v> :exe 'norm a'.system('/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -Command Get-Clipboard')
-noremap p :r !/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -Command Get-Clipboard<CR>
+noremap <M-p> :r !/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -Command Get-Clipboard<CR>
 
+set title
 set clipboard=unnamed
 set number		"行号
 set hlsearch
@@ -73,12 +69,14 @@ set incsearch		" Incremental search
 "set hidden		" Hide buffers when they are abandoned
 set mouse=a		" Enable mouse usage (all modes)
 set backspace=indent,eol,start
-set directory=~/.vim/tmp
+set directory=~/.config/nvim/tmp
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,sjis,euc-jp,euc-kr,latin1
 set ts=4
 set sw=4
 
 "set plugin
+let g:mkdp_preview_options = {'disable_filename': 1}
 
 "keybind
-noremap <silent> t :NERDTreeToggle<CR>
+nnoremap <M-u> :UndotreeToggle<CR>
+noremap <silent> <M-t> :NERDTreeToggle<CR>
