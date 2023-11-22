@@ -42,7 +42,10 @@ fi
 # Keybind
 
 # Load Plugin
-source ~/.zinit/bin/zinit.zsh
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
 
 zinit wait lucid light-mode for \
 	changyuheng/zsh-interactive-cd \
@@ -99,3 +102,4 @@ setopt HIST_VERIFY # Don't execute immediately upon history expansion.
 
 # Load custom config
 [ -f "$CONFIG_HOME/custom.sh" ] && source "$CONFIG_HOME/custom.sh"
+. "/root/.acme.sh/acme.sh.env"
